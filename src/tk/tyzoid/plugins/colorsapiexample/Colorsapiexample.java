@@ -1,6 +1,5 @@
 package tk.tyzoid.plugins.colorsapiexample;
 
-import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -16,18 +15,16 @@ public class Colorsapiexample extends JavaPlugin {
     }
 
     public void onEnable() {
-    	if(capi == null){
+    	if(getServer().getPluginManager().getPlugin("Colors") != null && capi == null){
     		capi = ColorsAPI.getInstance();
+    		System.out.println("[" + pluginname + "] Hooked into Colors.");
     	} else {
     		capi = null;
-    		//Colors does not exist (or an old version is being used)
+    		System.out.println("[" + pluginname + "] Colors not found.");
     	}
     	
         PluginManager pm = getServer().getPluginManager();
         
         pm.registerEvents(listener, this);
-        
-        PluginDescriptionFile pdfFile = this.getDescription();
-        System.out.println("[" + pluginname + "] Starting " + pluginname + " v" + pdfFile.getVersion() + "...");
     }
 }
