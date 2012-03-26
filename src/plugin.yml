@@ -1,0 +1,4 @@
+name: ColorsAPIExample
+main: tk.tyzoid.plugins.colorsapiexample.Colorsapiexample
+version: 1.0.0a
+author: Tyzoid
